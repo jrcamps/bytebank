@@ -25,12 +25,14 @@ class Funcionario:
         nome_split = nome_completo.split(' ')
         return nome_split[-1]
     
+    def verifica_socio(self):
+        sobrenomes_socios = ['Bragança', 'Windsor', 'Bourbon', 'Yamato', 'Al Saud', 'Khan', 'Tudor', 'Ptolomeu']
+        return self.salario >= 100000 and self.sobrenome() in sobrenomes_socios
+    
     def decrescimo_salario(self):
-        sobrenomes_diretores = ['Bragança', 'Windsor', 'Bourbon', 'Yamato', 'Al Saud', 'Khan', 'Tudor', 'Ptolomeu']
-
-        if self.salario >= 100000 and self.sobrenome() in sobrenomes_diretores:
-            decrescimo = self.salario * 0.1
-            self._salario = self.salario - decrescimo
+            if self.verifica_socio():
+                decrescimo = self.salario * 0.1
+                self._salario = self.salario - decrescimo
 
     def calcular_bonus(self):
         valor = self._salario * 0.1
