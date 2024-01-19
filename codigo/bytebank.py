@@ -24,6 +24,13 @@ class Funcionario:
         nome_completo = self.nome.strip()
         nome_split = nome_completo.split(' ')
         return nome_split[-1]
+    
+    def decrescimo_salario(self):
+        sobrenomes_diretores = ['Bragança', 'Windsor', 'Bourbon', 'Yamato', 'Al Saud', 'Khan', 'Tudor', 'Ptolomeu']
+
+        if self.salario >= 100000 and self.sobrenome() in sobrenomes_diretores:
+            decrescimo = self.salario * 0.1
+            self._salario = self.salario - decrescimo
 
     def calcular_bonus(self):
         valor = self._salario * 0.1
@@ -33,3 +40,4 @@ class Funcionario:
 
     def __str__(self):
         return f'Funcionario({self._nome}, {self._data_nascimento}, {self._salario})'
+    
